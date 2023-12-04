@@ -25,7 +25,7 @@ pub fn find_calibration(calibration_value: &str, with_spelled_digits: bool) -> u
     }
 
 
-    return result;
+    result
 }
 
 fn extract_digits(calibration_line: &str, with_spelled_digits : bool) -> (u32, u32) {
@@ -46,7 +46,7 @@ fn extract_digits(calibration_line: &str, with_spelled_digits : bool) -> (u32, u
                 }
             }
         }
-        if first == None {
+        if first.is_none() {
             first = last;
         }
     }
