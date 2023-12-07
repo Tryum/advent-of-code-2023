@@ -1,7 +1,3 @@
-use core::num;
-use std::collections::HashSet;
-
-use advent_of_code_2023::text_to_string_vec;
 use colored::Colorize;
 
 #[derive(Debug, PartialEq)]
@@ -70,13 +66,13 @@ pub fn solve_day3_part1(input: &str) -> u32 {
     let numbers = locate_number(input);
     let symboles = locate_symbole(input);
     'outer: for n in numbers.iter(){
-        'inner: for s in symboles.iter(){
+        for s in symboles.iter(){
             if is_adjacent(n, s){
                 result += n.value;
                 continue 'outer;
             }
         }
-        println!("{} is not a part number", n.value);
+        //println!("{} is not a part number", n.value);
     }
     result
 }
@@ -92,7 +88,7 @@ pub fn day3_p1_debug(input: &str) {
     let mut alone = Vec::new();
 
     'outer: for n in numbers.iter(){
-        'inner: for s in symboles.iter(){
+        for s in symboles.iter(){
             if is_adjacent(n, s){
                 continue 'outer;
             }
@@ -112,14 +108,20 @@ pub fn day3_p1_debug(input: &str) {
                     }
                 }
                 if solo {
-                    print!("{}", c.to_string().blue());
+                    //print!("{}", c.to_string().blue());
+                    print!(" ");
                 }
                 else{
-                    print!("{}", c.to_string().red());
+                    //print!("{}", c.to_string().red());
+                    print!(" ");
                 }
             }
             else if !c.is_alphanumeric() && c != '.'{
-                print!("{}", c.to_string().green());
+                //print!("{}", c.to_string().green());
+                print!(" ");
+            }
+            else if c == '.'{
+                print!(" ");
             }
             else {
                 print!("{}", c);
