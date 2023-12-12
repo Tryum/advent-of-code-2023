@@ -8,8 +8,8 @@ pub fn solve_day3_part2(input: &str) -> u32 {
 
 #[cfg(test)]
 mod tests{
-    const EXAMPLE : &'static str ="\
-";
+    const EXAMPLE : &'static str =
+"";
 
     #[test]
     fn test_day3_p1() {

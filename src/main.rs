@@ -2,12 +2,13 @@ use std::fs;
 
 use day1::find_calibration;
 
-use crate::{day2::{Hand, solve_day2_part1, solve_day2_part2}, day3::{solve_day3_part1, day3_p1_debug}, day4::{solve_day4_part1, solve_day4_part2}};
+use crate::{day2::{Hand, solve_day2_part1, solve_day2_part2}, day3::{solve_day3_part1, day3_p1_debug}, day4::{solve_day4_part1, solve_day4_part2}, day5::{solve_day5_part1, solve_day5_part2}};
 
 mod day1;
 mod day2;
 mod day3;
 mod day4;
+mod day5;
 
 fn main() {
     let content = fs::read_to_string("./data/day1p1.txt").unwrap();
@@ -25,4 +26,8 @@ fn main() {
     let content = fs::read_to_string("./data/day4.txt").unwrap();
     println!("day 4 part 1: {}", solve_day4_part1(content.as_str()));
     println!("day 4 part 2: {}", solve_day4_part2(content.as_str()));
+
+    let content = fs::read_to_string("./data/day5.txt").unwrap();
+    println!("day 5 part 1: {}", solve_day5_part1(&mut content.as_str().lines()));
+    println!("day 5 part 2: {}", solve_day5_part2(&mut content.as_str().lines()));
 }
