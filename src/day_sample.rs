@@ -1,9 +1,11 @@
 use advent_of_code_2023::text_to_string_vec;
 
-pub fn solve_day3_part1(input: &str) -> u32 {
+pub fn solve_day##DAY##_part1(input: &str) -> u64 {
+    0
 }
 
-pub fn solve_day3_part2(input: &str) -> u32 {
+pub fn solve_day##DAY##_part2(input: &str) -> u64 {
+    0
 }
 
 #[cfg(test)]
@@ -12,11 +14,10 @@ mod tests{
 "";
 
     #[test]
-    fn test_day3_p1() {
+    fn test_day##DAY##_p1() {
     }
 
     #[test]
-    fn test_day3_p2() {
+    fn test_day##DAY##_p2() {
     }
-
 }
