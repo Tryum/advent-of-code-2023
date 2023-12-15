@@ -2,7 +2,7 @@ use std::fs;
 
 use day1::find_calibration;
 
-use crate::{day2::{Hand, solve_day2_part1, solve_day2_part2}, day3::solve_day3_part1, day4::{solve_day4_part1, solve_day4_part2}, day5::{solve_day5_part1, solve_day5_part2}, day6::{solve_day6_part1, solve_day6_part2}, day7::{solve_day7_part1, solve_day7_part2}, day8::{solve_day8_part1, solve_day8_part2}, day13::{solve_day13_part1, solve_day13_part2}, day14::{solve_day14_part1, solve_day14_part2}};
+use crate::{day2::{Hand, solve_day2_part1, solve_day2_part2}, day3::solve_day3_part1, day4::{solve_day4_part1, solve_day4_part2}, day5::{solve_day5_part1, solve_day5_part2}, day6::{solve_day6_part1, solve_day6_part2}, day7::{solve_day7_part1, solve_day7_part2}, day8::{solve_day8_part1, solve_day8_part2}, day13::{solve_day13_part1, solve_day13_part2}, day14::{solve_day14_part1, solve_day14_part2}, day15::{solve_day15_part1, solve_day15_part2}};
 
 mod day1;
 mod day2;
@@ -15,6 +15,7 @@ mod day8;
 
 mod day13;
 mod day14;
+mod day15;
 
 fn main() {
     let content = fs::read_to_string("./data/day1p1.txt").unwrap();
@@ -55,6 +56,10 @@ fn main() {
     println!("day 13 part 2: {}", solve_day13_part2(content.as_str()));
 
     let content = fs::read_to_string("./data/day14.txt").unwrap();
-    println!("day 14 part 1: {}", solve_day14_part1(content.as_str()));
-    println!("day 14 part 2: {}", solve_day14_part2(content.as_str()));
+    // println!("day 14 part 1: {}", solve_day14_part1(content.as_str()));
+    // println!("day 14 part 2: {}", solve_day14_part2(content.as_str()));
+
+    let content = fs::read_to_string("./data/day15.txt").unwrap();
+    println!("day 15 part 1: {}", solve_day15_part1(content.as_str()));
+    println!("day 15 part 2: {}", solve_day15_part2(content.as_str()));
 }
