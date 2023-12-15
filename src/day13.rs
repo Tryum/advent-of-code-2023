@@ -1,5 +1,3 @@
-use advent_of_code_2023::text_to_string_vec;
-use colored::Colorize;
 
 type Pattern = Vec<String>;
 
@@ -62,7 +60,7 @@ fn detect_horizontal_reflect(pattern : &Pattern, part2: bool) -> Option<u64> {
                     continue 'outer;
                 }
             }
-            if (part2 && ofo_count != 1) {
+            if part2 && ofo_count != 1 {
                 continue;
             }
             return Some((i+1) as u64);

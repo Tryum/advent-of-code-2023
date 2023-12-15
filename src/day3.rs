@@ -1,4 +1,3 @@
-use colored::Colorize;
 
 #[derive(Debug, PartialEq)]
 struct Number {
@@ -77,11 +76,11 @@ pub fn solve_day3_part1(input: &str) -> u32 {
     result
 }
 
-pub fn solve_day3_part2(input: &str) -> u32 {
+pub fn _solve_day3_part2(_input: &str) -> u32 {
     0
 }
 
-pub fn day3_p1_debug(input: &str) {
+pub fn _day3_p1_debug(input: &str) {
     let numbers = locate_number(input);
     let symboles = locate_symbole(input);
 
@@ -133,7 +132,7 @@ pub fn day3_p1_debug(input: &str) {
 
 #[cfg(test)]
 mod tests{
-    use crate::day3::{Number, Symbole, is_adjacent, solve_day3_part1, day3_p1_debug};
+    use crate::day3::{Number, Symbole, is_adjacent, solve_day3_part1};
 
     use super::{locate_number, locate_symbole};
 

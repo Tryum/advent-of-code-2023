@@ -1,6 +1,5 @@
-use std::{str::Lines, io::BufRead};
+use std::str::Lines;
 
-use advent_of_code_2023::text_to_string_vec;
 use itertools::Itertools;
 
 #[derive(PartialEq, Debug)]

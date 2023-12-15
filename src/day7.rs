@@ -1,8 +1,5 @@
 use std::{cmp::Ordering, collections::HashMap};
 
-use advent_of_code_2023::text_to_string_vec;
-
-
 #[derive(Debug, PartialEq, PartialOrd)]
 enum HandType {
     HighCard,
@@ -117,7 +114,6 @@ fn parse_hand(hand: &str) -> HandType {
 }
 
 fn parse_hand2(hand: &str) -> HandType {
-    const CARDS : &'static str = "AKQJT98765432";
 
     let mut pairs = 0;
     let mut three_of_a_kind = 0;
@@ -130,7 +126,7 @@ fn parse_hand2(hand: &str) -> HandType {
     }
 
     let jokers = card_count.remove(&b'J').unwrap_or(0);
-    for (card, count) in card_count {
+    for (_card, count) in card_count {
         match count {
             5 => return HandType::FiveOfAKind,
             4 => four_of_a_kind +=1,

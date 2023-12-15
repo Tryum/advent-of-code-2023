@@ -2,7 +2,6 @@
 
 use std::str::Lines;
 
-use advent_of_code_2023::text_to_string_vec;
 use itertools::Itertools;
 
 pub fn solve_day6_part1(line: &mut Lines) -> u64 {
