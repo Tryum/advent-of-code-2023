@@ -1,29 +1,6 @@
 use std::{collections::HashSet, cmp::max};
 
-use itertools::Itertools;
-
-#[derive(Hash, PartialEq, Eq, Clone, Copy, Debug)]
-enum Direction {
-    North,
-    East,
-    South,
-    West
-}
-
-#[derive(Hash, PartialEq, Eq, Clone, Copy, Debug)]
-struct Position {
-    x: i32,
-    y: i32
-}
-
-impl Position {
-    pub fn new(x: i32, y: i32) -> Self {
-        Position {
-            x: x,
-            y: y
-        }
-    }
-}
+use advent_of_code_2023::{Direction, Position};
 
 #[derive(Hash, PartialEq, Eq, Clone, Copy, Debug)]
 struct Beam {
