@@ -29,22 +29,22 @@ pub fn solve_day16_part2(input: &str) -> usize {
     for i in 0..width {
         let beam = Beam { pos: Position::new(i as i32, 0), dir: Direction::South};
         let energized_tiles = day16_solver(&map, &beam);
-        println!("{:?} : {}", beam, energized_tiles);
+        //println!("{:?} : {}", beam, energized_tiles);
         best_score = max(energized_tiles, best_score);
         let beam = Beam { pos: Position::new(i as i32, (height-1) as i32), dir: Direction::North};
         let energized_tiles = day16_solver(&map, &beam);
-        println!("{:?} : {}", beam, energized_tiles);
+        //println!("{:?} : {}", beam, energized_tiles);
         best_score = max(energized_tiles, best_score);
 
     }
     for i in 0..height {
         let beam = Beam { pos: Position::new(0, i as i32), dir: Direction::West};
         let energized_tiles = day16_solver(&map, &beam);
-        println!("{:?} : {}", beam, energized_tiles);
+        //println!("{:?} : {}", beam, energized_tiles);
         best_score = max(energized_tiles, best_score);
         let beam = Beam { pos: Position::new((width-1) as i32, i as i32), dir: Direction::East};
         let energized_tiles = day16_solver(&map, &beam);
-        println!("{:?} : {}", beam, energized_tiles);
+        //println!("{:?} : {}", beam, energized_tiles);
         best_score = max(energized_tiles, best_score);
     }
     best_score

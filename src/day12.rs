@@ -1,3 +1,5 @@
+use std::ops::RemAssign;
+
 use advent_of_code_2023::text_to_string_vec;
 use colored::control;
 
@@ -8,10 +10,10 @@ pub fn solve_day12_part1(input: &str) -> u64 {
         if l.is_empty() {
             continue;
         }
-        let result = get_arrangement_count(l);
+        let result = get_arrangement_count2(l);
         sum += result;
         count+=1;
-        println!("line {count}, result {result}");
+        //println!("line {count}, result {result}");
     }
     sum
 }
@@ -25,7 +27,7 @@ pub fn solve_day12_part2(input: &str) -> u64 {
         }
         let new_rule = unfold_record(l);
 
-        let result = get_arrangement_count(new_rule.as_str());
+        let result = get_arrangement_count2(new_rule.as_str());
         sum += result;
         count+=1;
         println!("line {count}, result {result}");
@@ -43,6 +45,30 @@ fn get_arrangement_count(input: &str) -> u64 {
         }
     }
     valid_result
+}
+
+fn get_arrangement_count2(input: &str) -> u64 {
+    let (pattern, control) = parse_input(input);
+    let patterns = generate_patterns2(pattern);
+
+    let mut valid_patterns = Vec::new();
+    let mut queue = Vec::new();
+    queue.push(&patterns);
+    while let Some(p) = queue.pop() {
+        if p.left.is_none() {
+            if validate_picross_line(&p.pattern, &control) {
+                valid_patterns.push(p.pattern.clone());
+            }
+        }
+        else {
+            let left_pattern = p.left.as_ref().unwrap().as_ref();
+            let right_pattern = p.right.as_ref().unwrap().as_ref();
+            queue.push(left_pattern);
+            queue.push(right_pattern);
+        }
+    }
+
+    valid_patterns.len() as u64
 }
 
 fn validate_picross_line(input: &str, control: &Vec<u32> ) -> bool {
@@ -85,6 +111,35 @@ fn generate_patterns(size: usize) -> Vec<String> {
     result
 }
 
+struct Pattern {
+    pattern : String,
+    left: Option<Box<Self>>,
+    right: Option<Box<Self>>
+}
+
+fn generate_patterns2(input: &str) -> Pattern {
+    let mut p = Pattern {
+        pattern : input.to_string(),
+        left : None,
+        right: None
+    };
+
+    for (i, c) in p.pattern.chars().enumerate() {
+        if c == '?' {
+            let mut left_str = p.pattern.clone();
+            left_str.replace_range(i..i+1, ".");
+            p.left = Some(Box::new(generate_patterns2(&left_str)));
+
+            let mut right_str = p.pattern.clone();
+            right_str.replace_range(i..i+1, "#");
+            p.right = Some(Box::new(generate_patterns2(&right_str)));
+            break;
+        }
+    }
+
+    p
+}
+
 fn validate_pattern(control: &str, pattern: &str) -> bool {
     if pattern.len() != control.len() {
         return false;
@@ -107,9 +162,37 @@ fn unfold_record(input: &str) -> String {
     result
 }
 
+enum GroupType {
+    Unknown,
+    Blank,
+    Plain
+}
+
+struct Group<'a> {
+    pattern : &'a str,
+    group_type : GroupType
+}
+
+fn split_groups(input: &str) -> Vec<Group> {
+    let mut result = Vec::new();
+    let mut prev_index = 0;
+    let mut prev_char = input.chars().nth(0);
+    for (i, c) in input.chars().enumerate() {
+    }
+    result
+}
+
+fn find_combination(input: &str) -> u32 {
+    let (pattern, rules) = parse_input(input);
+
+
+
+    0
+}
+
 #[cfg(test)]
 mod tests{
-    use crate::day12::{get_arrangement_count, validate_picross_line, parse_input, generate_patterns, solve_day12_part1, solve_day12_part2, unfold_record};
+    use crate::day12::{get_arrangement_count, validate_picross_line, parse_input, generate_patterns, solve_day12_part1, solve_day12_part2, unfold_record, find_combination};
 
     use super::validate_pattern;
 
@@ -170,5 +253,11 @@ mod tests{
     #[test]
     fn test_unfold_record() {
         assert_eq!(unfold_record(".# 1"), ".#?.#?.#?.#?.# 1,1,1,1,1".to_string());
+    }
+
+    #[ignore = "another day"]
+    #[test]
+    fn test_find_combination(){
+        assert_eq!(find_combination("?###???????? 3,2,1"), 10);
     }
 }

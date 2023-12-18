@@ -19,7 +19,7 @@ fn parse_seeds(input: &mut Lines) -> Vec<u64> {
 fn parse_range(input: &mut Lines) -> Vec<MappingRange> {
     let header = input.next().unwrap();
     assert!(header.ends_with("map:"));
-    println!("{}", header);
+    //println!("{}", header);
     let mut output = Vec::new();
     loop {
         let line = input.next().unwrap();
@@ -190,7 +190,7 @@ pub fn solve_day5_part2(input: &mut Lines) -> u64 {
     let humi = get_target_value_form_map2(temp, &temperature_to_humidity_map);
     let loc = get_target_value_form_map2(humi, &humidity_to_location_map);
 
-    dbg!(&loc);
+    //dbg!(&loc);
 
     loc[0].0
 }
