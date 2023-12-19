@@ -15,6 +15,7 @@ dependencies = [
  "colored",
  "image",
  "itertools",
+ "num-traits",
  "priority-queue",
  "regex",
 ]
