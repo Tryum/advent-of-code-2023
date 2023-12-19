@@ -2,7 +2,7 @@ use std::fs;
 
 use day1::find_calibration;
 
-use crate::{day2::{Hand, solve_day2_part1, solve_day2_part2}, day3::solve_day3_part1, day4::{solve_day4_part1, solve_day4_part2}, day5::{solve_day5_part1, solve_day5_part2}, day6::{solve_day6_part1, solve_day6_part2}, day7::{solve_day7_part1, solve_day7_part2}, day8::{solve_day8_part1, solve_day8_part2}, day13::{solve_day13_part1, solve_day13_part2}, day14::{solve_day14_part1, solve_day14_part2}, day15::{solve_day15_part1, solve_day15_part2}, day12::solve_day12_part1, day16::{solve_day16_part1, solve_day16_part2}, day17::{solve_day17_part1, solve_day17_part2}};
+use crate::{day2::{Hand, solve_day2_part1, solve_day2_part2}, day3::solve_day3_part1, day4::{solve_day4_part1, solve_day4_part2}, day5::{solve_day5_part1, solve_day5_part2}, day6::{solve_day6_part1, solve_day6_part2}, day7::{solve_day7_part1, solve_day7_part2}, day8::{solve_day8_part1, solve_day8_part2}, day13::{solve_day13_part1, solve_day13_part2}, day14::{solve_day14_part1, solve_day14_part2}, day15::{solve_day15_part1, solve_day15_part2}, day12::solve_day12_part1, day16::{solve_day16_part1, solve_day16_part2}, day17::{solve_day17_part1, solve_day17_part2}, day18::{solve_day18_part1, solve_day18_part2}};
 
 mod day1;
 mod day2;
@@ -19,6 +19,7 @@ mod day14;
 mod day15;
 mod day16;
 mod day17;
+mod day18;
 
 fn main() {
     let content = fs::read_to_string("./data/day1p1.txt").unwrap();
@@ -55,7 +56,7 @@ fn main() {
     //println!("day 8 part 2: {}", solve_day8_part2(content.as_str()));
 
     let content = fs::read_to_string("./data/day12.txt").unwrap();
-    //println!("day 12 part 1: {}", solve_day12_part1(content.as_str()));
+    println!("day 12 part 1: {}", solve_day12_part1(content.as_str()));
 
     let content = fs::read_to_string("./data/day13.txt").unwrap();
     println!("day 13 part 1: {}", solve_day13_part1(content.as_str()));
@@ -75,5 +76,9 @@ fn main() {
 
     let content = fs::read_to_string("./data/day17.txt").unwrap();
     println!("day 17 part 1: {}", solve_day17_part1(content.as_str()));
-    println!("day 17 part 2: {}", solve_day17_part2(content.as_str())); // 841 < answer < 913
+    println!("day 17 part 2: {}", solve_day17_part2(content.as_str()));
+
+    let content = fs::read_to_string("./data/day18.txt").unwrap();
+    println!("day 18 part 1: {}", solve_day18_part1(content.as_str()));
+    println!("day 18 part 2: {}", solve_day18_part2(content.as_str()));
 }
