@@ -262,8 +262,6 @@ fn part2_solver(input: &str) -> u64 {
         rules.push((wf.exit, xmas));
     }
 
-    dbg!(&accepted_range);
-
     let mut result = 0;
     for r in accepted_range {
         result += r.x.diff() as u64 * r.m.diff() as u64 * r.a.diff() as u64 * r.s.diff() as u64;
