@@ -49,6 +49,30 @@ impl Position {
             y: y
         }
     }
+
+    pub fn north(self) -> Self {
+        let mut north = self;
+        north.y-=1;
+        north
+    }
+
+    pub fn east(self) -> Self {
+        let mut east = self;
+        east.x+=1;
+        east
+    }
+
+    pub fn south(self) -> Self {
+        let mut south  = self;
+        south.y+=1;
+        south
+    }
+
+    pub fn west(self) -> Self {
+        let mut west = self;
+        west.x-=1;
+        west
+    }
 }
 
 #[cfg(test)]
